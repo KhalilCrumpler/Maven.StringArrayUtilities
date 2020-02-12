@@ -9,6 +9,7 @@ public class StringArrayUtils {
      * @return first element of specified array
      */ // TODO
     public static String getFirstElement(String[] array) {
+
         return array[0];
     }
 
@@ -17,6 +18,7 @@ public class StringArrayUtils {
      * @return second element in specified array
      */
     public static String getSecondElement(String[] array) {
+
         return array[1];
     }
 
@@ -25,7 +27,8 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        int len = array.length;
+        return array[len-1];
     }
 
     /**
@@ -33,7 +36,9 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        int len = array.length;
+        return array[len-2];
+
     }
 
     /**
@@ -42,6 +47,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for(int i = 0; i < array.length; i++){
+            if (array[i].equals(value)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -50,7 +60,14 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        int len = array.length;
+        int j = len;
+        String[] newArray = new String[len];
+        for(int i = 0; i < array.length; i++){
+            newArray[j-1] = array[i];
+            j -=1;
+        }
+        return newArray;
     }
 
     /**
