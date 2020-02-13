@@ -90,7 +90,13 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        String newString = "";
+        for(int i = 0; i < array.length; i++){
+            newString += array[i];
+        }
+        newString = newString.toLowerCase().replaceAll("[^a-z]", "").replaceAll("(.)(?=.*\\1)", "");
+
+        return newString.length() == 26;
     }
 
     /**
@@ -99,7 +105,13 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int count = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i].equals(value)){
+                count +=1;
+            }
+        }
+        return count;
     }
 
     /**
@@ -108,7 +120,21 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        int diffLength = array.length;
+        for(int i = 0; i < array.length; i++){
+            if(array[i].equals(valueToRemove)){
+                diffLength--;
+            }
+        }
+        String[] result = new String[diffLength];
+        int count = 0;
+        for(int i = 0; i < array.length; i++){
+            if(!array[i].equals(valueToRemove)){
+                result[count] = array[i];
+                count++;
+            }
+        }
+        return result;
     }
 
     /**
